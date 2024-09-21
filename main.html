@@ -4,94 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nested Tables</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .black-background {
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="tables-container">
+        <table class="main-table">
+            <tr>
+                <td>
+                    <!-- Nested Table 1 -->
+                    <table class="nested-table">
+                        <thead>
+                            <tr>
+                                <th>Nested Table 1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>List item 1</li>
+                                        <li>List item 2</li>
+                                        <li>List item 3</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <!-- Nested Table 2 -->
+                    <table class="nested-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Nested Table 2</th>
+                            </tr>
+                            <tr>
+                                <th>Column 1</th>
+                                <th>Column 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>abc</td>
+                                <td>def</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- Nested Table 3 -->
+                    <table class="nested-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Nested Table 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#">Nested Table</a></td>
+                                <td>Demo Continued</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <!-- Nested Table 4 -->
+                    <table class="nested-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Nested Table 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="highlighted">HTML</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-    <!-- Main table containing 4 nested tables -->
-    <table border="1">
-        <tr>
-            <td>
-                <!-- Nested Table 1 -->
-                <table border="1">
-                    <tr>
-                        <th>Nested Table 1</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul>
-                                <li>List item 1</li>
-                                <li>List item 2</li>
-                                <li>List item 3</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <!-- Nested Table 2 -->
-                <table border="1">
-                    <tr>
-                        <th colspan="2">Nested Table 2</th> <!-- This is the key header Cypress is checking -->
-                    </tr>
-                    <tr>
-                        <th>Column 1</th> <!-- Cypress checks for "Column 1" -->
-                        <th>Column 2</th> <!-- Cypress checks for "Column 2" -->
-                    </tr>
-                    <tr>
-                        <td>abc</td>
-                        <td>def</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <!-- Nested Table 3 -->
-                <table border="1">
-                    <tr>
-                        <th colspan="2">Nested Table 3</th>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Nested Table</a></td>
-                        <td>Demo Continued</td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <!-- Nested Table 4 -->
-                <table border="1">
-                    <tr>
-                        <th colspan="2">Nested Table 4</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="black-background">HTML</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-
+    <script src="scripts.js"></script>
 </body>
 </html>
