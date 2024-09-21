@@ -1,22 +1,23 @@
 describe('Nested Tables Test', () => {
     it('should correctly find Nested Table 2 and its columns', () => {
-        cy.visit('http://localhost:3000'); // adjust the URL to where the HTML is hosted
-        
-        // Check the total number of tables
-        cy.get("table").should("have.length", 5); // including all main and nested tables
+        cy.visit('http://localhost:3000'); // adjust to your actual URL
 
-        // Find the second nested table and check its content
+        // Check if the tables are present and rendered
+        cy.get("table").should("have.length", 5);
+
+        // Explicitly get the second table (index 1) and check the headers
         cy.get("table").eq(1).within(() => {
-            cy.get("th").eq(0).contains("Nested Table 2");
-            cy.get("th").eq(1).contains("Column 1");
-            cy.get("th").eq(2).contains("Column 2");
+            cy.get("th").eq(0).should("contain.text", "Nested Table 2");
+            cy.get("th").eq(1).should("contain.text", "Column 1");
+            cy.get("th").eq(2).should("contain.text", "Column 2");
         });
     });
 
-    it('should check Nested Table 4 with background color', () => {
+    it('should correctly find Nested Table 4 and its background color', () => {
+        // Check the content of Nested Table 4
         cy.get("table").eq(3).within(() => {
-            cy.get("th").contains("Nested Table 4");
-            cy.get("td").contains("HTML").should("have.class", "highlighted");
+            cy.get("th").should("contain.text", "Nested Table 4");
+            cy.get("td").contains("HTML").should("have.css", "background-color", "rgb(0, 0, 0)"); // assuming black background
         });
     });
 });
